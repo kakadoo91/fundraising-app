@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { loadBaskets, saveBaskets } from "@/lib/basketStore";
 import { useRouter } from "next/navigation";
 
@@ -9,9 +9,9 @@ export default function NewBasket() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [goal, setGoal] = useState("");
+  const [goal, setGoal] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const baskets = loadBaskets();
