@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import { loadBaskets } from "@/lib/basketStore";
 
+import type { Basket } from "@/lib/basketStore";
+
 export default function BasketList() {
-  const [baskets, setBaskets] = useState([]);
+  const [baskets, setBaskets] = useState<Basket[]>([]);
 
   useEffect(() => {
     setBaskets(loadBaskets());
